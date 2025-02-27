@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 **/node_modules/**
 *.min.js
+=======
+**/node_modules/**
+*.min.js
+>>>>>>> 4700a08e06b1981ae40834a697796fe7e2051b8b
