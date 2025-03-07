@@ -41,23 +41,13 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: node-app
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_94D0B4A9B1F64376BDF37975369AD9AD }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6142EE6CA93C49C99DB355D592F33E88 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8BD0E592194B4C24BE8447AF92E6F283 }}
-
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
@@ -65,4 +55,4 @@ jobs:
           app-name: 'ArduinoAzurebotones'
           slot-name: 'Production'
           package: .
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F58BA78AF4B548C48EDA17F72F5F30EB }}
