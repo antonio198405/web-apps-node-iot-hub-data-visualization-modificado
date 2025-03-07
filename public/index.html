@@ -1,33 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Arduino</title>
-    <script>
-        const serverUrl = "https://ArduinoAzurebotones.azurewebsites.net";
-        
-        function togglePin(pin, state) {
-            fetch(`${serverUrl}/set`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ pin, state })
-            })
-            .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => console.error("Error:", error));
-        }
-    </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/chart-device-data.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/style.css" rel="stylesheet" />
+
+    <title>Temperature &amp; Humidity Real-time Data</title>
 </head>
+
 <body>
-    <h1>Control de Arduino</h1>
-    <button onclick="togglePin(1, 'on')">Encender 1</button>
-    <button onclick="togglePin(1, 'off')">Apagar 1</button>
-    <button onclick="togglePin(2, 'on')">Encender 2</button>
-    <button onclick="togglePin(2, 'off')">Apagar 2</button>
-    <button onclick="togglePin(3, 'on')">Encender 3</button>
-    <button onclick="togglePin(3, 'off')">Apagar 3</button>
-    <button onclick="togglePin(4, 'on')">Encender 4</button>
-    <button onclick="togglePin(4, 'off')">Apagar 4</button>
+    <h1 class="flexHeader">
+        <span>
+            <span id="deviceCount">0 devices</span>
+            <select id="listOfDevices" class="select_box"></select>
+        </span>
+        <span>Temperature & Humidity Real-time Data</span>
+    </h1>
+    <div>
+        <canvas id="iotChart"></canvas>
+    </div>
 </body>
+
 </html>
