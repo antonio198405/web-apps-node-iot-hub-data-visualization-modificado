@@ -15,16 +15,16 @@
 </head>
 
 <body>
-    <h1 class="flexHeader">
-        <span>
-            <span id="deviceCount">0 devices</span>
-            <select id="listOfDevices" class="select_box"></select>
-        </span>
-        <span>Temperature & Humidity Real-time Data</span>
-    </h1>
-    <div>
-        <canvas id="iotChart"></canvas>
+    <h1>Control de Arduino</h1>
+    <div class="button-container">
+        <button onclick="togglePin(1, 'on')">Encender 1</button>
+        <button class="off" onclick="togglePin(1, 'off')">Apagar 1</button>
+        <button onclick="togglePin(2, 'on')">Encender 2</button>
+        <button class="off" onclick="togglePin(2, 'off')">Apagar 2</button>
+        <button onclick="togglePin(3, 'on')">Encender 3</button>
+        <button class="off" onclick="togglePin(3, 'off')">Apagar 3</button>
+        <button onclick="togglePin(4, 'on')">Encender 4</button>
+        <button class="off" onclick="togglePin(4, 'off')">Apagar 4</button>
     </div>
 </body>
-
 </html>
