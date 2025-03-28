@@ -62,4 +62,7 @@ const eventHubReader = new EventHubReader(iotHubConnectionString, eventHubConsum
       console.error('Error broadcasting: [%s] from [%s].', err, message);
     }
   });
+  app.get("/status", (req, res) => {
+    res.send("ESP8266 conectado correctamente");
+});
 })().catch();
